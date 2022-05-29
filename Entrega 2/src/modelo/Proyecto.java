@@ -12,6 +12,7 @@ public class Proyecto
 	private ArrayList<Actividad> actividades = new ArrayList<Actividad>();
 	private Participante participanteduenio; 
 	private ArrayList<Participante> participantes = new ArrayList<Participante>();
+	private WorkPackage rootWBS;
 	
 	public Proyecto(String nombre, String descripcion, String fechaInicio, String fechaFin) {
 		super();

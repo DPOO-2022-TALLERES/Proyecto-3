@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Entrega 2/src"/>
+	<classpathentry kind="lib" path="Entrega 2/lib/flatlaf-1.0.jar"/>
+	<classpathentry kind="output" path="Entrega 2/bin"/>
+</classpath>
