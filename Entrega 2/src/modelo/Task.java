@@ -14,5 +14,10 @@ public class Task {
 	private int finalTime; // Time of a task
 	private String finalFinishDate; // Finish date of a task
 	private WorkPackage parent; // Parent of a Task
+
+/*
+ * 
+ *
+ */
 }
 
