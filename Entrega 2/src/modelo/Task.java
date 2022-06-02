@@ -29,6 +29,8 @@ public class Task {
 		this.participants.add(participant);
 		this.project = project;
 		this.project.addTaskTipe(type);
+		this.project.addTask(this, type);
+		participant.addTask(this);
 	}
 	
 	/*
@@ -56,8 +58,10 @@ public class Task {
 	 * Adds a participant into the participants ArrayList.
 	 */
 	public void addParticipant(Participante panticipant) {
-		this.participants.add(panticipant);
-		panticipant.addTask(this);
+		if (!this.participants.contains(panticipant)) {
+			this.participants.add(panticipant);
+			panticipant.addTask(this);
+		}
 	}
 	
 	/*
@@ -81,7 +85,10 @@ public class Task {
 	}
 	
 	/*
-	 * 
+	 *  Return the name of this task
 	 */
+	public String getName() {
+		return this.name;
+	}
 }
 

@@ -19,6 +19,7 @@ public class Proyecto
 	private WorkPackage rootWBS;
 	private HashMap<String,ArrayList<Task>> typeoftasks = new HashMap<String,ArrayList<Task>>();
 	private ArrayList<Task> tasks = new ArrayList<Task>();
+	private ArrayList<WorkPackage> workpackages = new ArrayList<WorkPackage>();
 	
 	public Proyecto(String nombre, String descripcion, String fechaInicio, String fechaFin) {
 		super();
@@ -28,7 +29,7 @@ public class Proyecto
 		this.fechaFin = fechaFin;
 		
 		// WBS
-		WorkPackage rootWBSa = new WorkPackage(nombre + "-WBS", "This is root of  WBS of " + nombre, true );
+		WorkPackage rootWBSa = new WorkPackage(nombre + "-WBS", "This is root of  WBS of " + nombre, true, this);
 		this.rootWBS = rootWBSa;
 		rootWBSa.setProject(this);
 	}
@@ -108,6 +109,64 @@ public class Proyecto
 	public void addTask(Task task, String type) {
 		this.typeoftasks.get(type).add(task);
 		this.tasks.add(task);
+	}
+	
+	public void addWorkPackage(WorkPackage wp) {
+		this.workpackages.add(wp);
+	}
+	
+	public String[] giveOptionsWorkPackage() {
+		String [] options;
+		ArrayList<WorkPackage> optionsArray = new ArrayList<>();
+		for (WorkPackage i : this.workpackages) {
+			if (!i.haveTasks()) {
+				optionsArray.add(i);
+			}
+		}
+		options = new String[optionsArray.size()];
+		int iterator = 0;
+		for (WorkPackage j : optionsArray) {
+			options[iterator] = j.getName();
+			iterator++;
+		}
+		return options;
+	}
+	
+	public String[] giveOptionsTasks() {
+		String [] options;
+		ArrayList<WorkPackage> optionsArray = new ArrayList<>();
+		for (WorkPackage i : this.workpackages) {
+			if (i.haveTasks()) {
+				optionsArray.add(i);
+			}
+		}
+		options = new String[optionsArray.size()];
+		int iterator = 0;
+		for (WorkPackage j : optionsArray) {
+			options[iterator] = j.getName();
+			iterator++;
+		}
+		return options;
+	}
+
+	public WorkPackage getWorkPackage(String name) {
+		WorkPackage returns = null;
+		for (WorkPackage wp : this.workpackages) {
+			if(name.equals(wp.getName())) {
+				returns = wp;
+			}
+		}
+		return returns;
+	}
+
+	public Task getTask(String name) {
+		Task returns = null; 
+		for (Task tk : this.tasks) {
+			if(name.equals(tk.getName())) {
+				returns = tk;
+			}
+		}
+		return returns;
 	}
 	
 }

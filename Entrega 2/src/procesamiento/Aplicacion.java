@@ -9,6 +9,8 @@ import java.util.Observable;
 import modelo.Actividad;
 import modelo.Participante;
 import modelo.Proyecto;
+import modelo.Task;
+import modelo.WorkPackage;
 
 public class Aplicacion extends Observable{
 	
@@ -213,6 +215,30 @@ public String[] optionsModify(){
 	return returns;
 }
 
+// WBS
+
+public void addWorkPackage(String nameWorkPackageParent, String name, String description) {
+	WorkPackage root = this.proyectoelegido.getWorkPackage(nameWorkPackageParent);
+	root.addChildWorkPackage(root, name, description);
+}
+
+public void addTask(String nameWorkPackageParent, String name, String description, String type) {
+	WorkPackage root = this.proyectoelegido.getWorkPackage(nameWorkPackageParent);
+	Task task = new Task(name, description, type, this.participanteactivo, this.proyectoelegido);
+	root.addTasktoWorkPackage(task);
+}
+
+public void setEFTTask(String nameTask, String time) {
+	Task task = this.proyectoelegido.getTask(nameTask);
+	task.setExpectedTime(Integer.parseInt(time));
+}
+
+public void setEFDTask(String nameTask, String date) {
+	Task task = this.proyectoelegido.getTask(nameTask);
+	task.setExpectedFinishDate(date);
+}
+
+// Observer
 private void notificar() {
 	this.setChanged();
 	this.notifyObservers(this);	

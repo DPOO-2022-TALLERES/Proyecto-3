@@ -16,19 +16,21 @@ public class WorkPackage {
 	/*
 	 * Constructor of a root WorkPackage
 	 */
-	public WorkPackage( String name, String description, boolean isRoot) {
+	public WorkPackage( String name, String description, boolean isRoot, Proyecto project) {
 		this.name = name;
 		this.description= description;
 		this.isRoot = isRoot; 
+		this.project = project;
 	}
 	
 	/*
 	 * Constructor of a WorkPackage who is not a root. And inmediatly add that like child to his parent.
 	 */
 	public void addChildWorkPackage(WorkPackage parent, String name, String description) {
-		WorkPackage child = new WorkPackage(name, description, false);
+		WorkPackage child = new WorkPackage(name, description, false, this.project);
 		child.setParent(parent); // Set parent of a child
 		parent.addChildtoParent(child); // Add child to parent, that is added in the ArrayList
+		this.project.addWorkPackage(child);
 	}
 	
 	/*
@@ -58,5 +60,13 @@ public class WorkPackage {
 	 */
 	public void setProject(Proyecto project) {
 		this.project = project;
+	}
+	
+	public boolean haveTasks() {
+		return this.haveTaks;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 }
