@@ -12,6 +12,7 @@ public class WorkPackage {
 	private String name;  //  Workpackage Name .
 	private String description; // Workpackage Description. 
 	private Proyecto project; // Project to contains the WorkPackage
+	private boolean haveWorkPackages = false;
 	
 	/*
 	 * Constructor of a root WorkPackage
@@ -31,6 +32,7 @@ public class WorkPackage {
 		child.setParent(parent); // Set parent of a child
 		parent.addChildtoParent(child); // Add child to parent, that is added in the ArrayList
 		this.project.addWorkPackage(child);
+		this.haveWorkPackages = true;
 	}
 	
 	/*
@@ -68,5 +70,9 @@ public class WorkPackage {
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public boolean haveWorkPackages() {
+		return this.haveWorkPackages;
 	}
 }

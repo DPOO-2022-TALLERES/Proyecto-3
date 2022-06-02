@@ -32,6 +32,7 @@ public class Proyecto
 		WorkPackage rootWBSa = new WorkPackage(nombre + "-WBS", "This is root of  WBS of " + nombre, true, this);
 		this.rootWBS = rootWBSa;
 		rootWBSa.setProject(this);
+		this.workpackages.add(rootWBSa);
 	}
 	
 	public void setParticipanteDuenio(Participante participanteduenio) {
@@ -136,7 +137,7 @@ public class Proyecto
 		String [] options;
 		ArrayList<WorkPackage> optionsArray = new ArrayList<>();
 		for (WorkPackage i : this.workpackages) {
-			if (i.haveTasks()) {
+			if (!i.haveWorkPackages()) {
 				optionsArray.add(i);
 			}
 		}

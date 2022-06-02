@@ -201,6 +201,10 @@ public String getProyectoActivo() {
 	return this.proyectoelegido.getNombre();
 }
 
+public Proyecto getProyectoActivoObject() {
+	return this.proyectoelegido;
+}
+
 public String[] optionsModify(){
 	String[] returns;
 	HashMap<Integer,Actividad> hashmap = mostrarActividades();

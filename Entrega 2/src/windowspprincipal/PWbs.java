@@ -81,12 +81,15 @@ public class PWbs extends JPanel implements ActionListener{
 		
 		if (e.getSource() == createTask) {
 			
-			PTask task = new PTask();
+			JDSelectWBS i = new JDSelectWBS("task", principal);
+			
+			//
 		}
 		
 		if (e.getSource() == createPackage) {
 			
-			PPackage pack =  new PPackage();
+			JDSelectWBS i = new JDSelectWBS("package", principal);
+			
 		}
 		
 		if (e.getSource() == modifyTask) {

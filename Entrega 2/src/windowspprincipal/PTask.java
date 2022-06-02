@@ -1,13 +1,17 @@
 package windowspprincipal;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class PTask {
+import vista.FPrincipal;
+
+public class PTask implements ActionListener{
 	
 	JFrame frame = new JFrame();
 	
@@ -29,11 +33,17 @@ public class PTask {
     
     JButton create =  new JButton("Create");
     
+    String selection;
+    FPrincipal principal;
 
 	
 
 	
-	PTask() {
+	PTask(String selection, FPrincipal principal) {
+		this.selection = selection;
+		this.principal = principal;
+		
+		frame.setLocationRelativeTo(null);
 		frame.setSize(300,300);
 		frame.setTitle("Task");
 		frame.setLayout(new GridLayout(6,1));
@@ -51,9 +61,21 @@ public class PTask {
 		frame.add(txtDate);
 		frame.add(date);
 		frame.add(create);
+		create.addActionListener(this);
 		
 		frame.setVisible(true);
 	
+	}
+
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == create) {
+			this.principal.getAplicacion().addTask(selection, name.getText(), description.getText(), type.getText().strip());
+		}
+		
 	}
 	
 	
