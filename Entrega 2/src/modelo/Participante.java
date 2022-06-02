@@ -15,6 +15,9 @@ private int tiempoxdia= 0;
 private ArrayList<Actividad> actividades = new ArrayList<Actividad>();
 private ArrayList<String> diastrabajados = new ArrayList<String>();
 
+//WBS
+private ArrayList<Task> tasks = new ArrayList<Task>();
+
 public String getCorreo() 
 {
 	return correo;
@@ -76,5 +79,11 @@ public String setgetTiempoPromedioxActividad() {
 public String setgetTiempoxDia() {
 	this.tiempoxdia = this.tiempotrabajado / diastrabajados.size();
 	return String.valueOf(tiempoxdia);
+}
+
+public void addTask(Task task) {
+	if (!tasks.contains(task)) {
+		tasks.add(task);
+	}
 }
 }

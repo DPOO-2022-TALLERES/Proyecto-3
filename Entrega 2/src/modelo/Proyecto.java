@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Set;
 
 public class Proyecto 
 {
@@ -12,7 +14,11 @@ public class Proyecto
 	private ArrayList<Actividad> actividades = new ArrayList<Actividad>();
 	private Participante participanteduenio; 
 	private ArrayList<Participante> participantes = new ArrayList<Participante>();
+	
+	//WBS
 	private WorkPackage rootWBS;
+	private HashMap<String,ArrayList<Task>> typeoftasks = new HashMap<String,ArrayList<Task>>();
+	private ArrayList<Task> tasks = new ArrayList<Task>();
 	
 	public Proyecto(String nombre, String descripcion, String fechaInicio, String fechaFin) {
 		super();
@@ -20,6 +26,11 @@ public class Proyecto
 		this.descripcion = descripcion;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
+		
+		// WBS
+		WorkPackage rootWBSa = new WorkPackage(nombre + "-WBS", "This is root of  WBS of " + nombre, true );
+		this.rootWBS = rootWBSa;
+		rootWBSa.setProject(this);
 	}
 	
 	public void setParticipanteDuenio(Participante participanteduenio) {
@@ -84,5 +95,19 @@ public class Proyecto
 	}
 	
 	
-
+	//WBS
+	
+	public void addTaskTipe(String type) {
+		Set<String> llaves = this.typeoftasks.keySet();
+		if (!llaves.contains(type)){
+			ArrayList<Task> llave = new ArrayList<Task>();
+			typeoftasks.put(type, llave);
+		}
+	}
+	
+	public void addTask(Task task, String type) {
+		this.typeoftasks.get(type).add(task);
+		this.tasks.add(task);
+	}
+	
 }
