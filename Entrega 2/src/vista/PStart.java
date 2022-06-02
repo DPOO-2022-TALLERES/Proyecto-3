@@ -14,6 +14,7 @@ public class PStart extends JPanel implements ActionListener{
      JButton crearProyecto;
      JButton crearParticipante;
      JButton participantInfo;
+     JButton wbs;
      FPrincipal principal;
 	
      PStart(PPrincipal pPrincipal, FPrincipal principal){
@@ -44,6 +45,13 @@ public class PStart extends JPanel implements ActionListener{
 		participantInfo = new JButton("Participant Information ");
 		addButton(participantInfo,1,5,participantInfo);
 		participantInfo.addActionListener(this);
+		
+		wbs = new JButton("WBS");
+		addButton(wbs,1,6, wbs);
+		wbs.addActionListener(this);
+		
+		
+		
 			
 	}
 	
@@ -103,6 +111,16 @@ public class PStart extends JPanel implements ActionListener{
 		}
 		if (e.getSource() == participantInfo) {
 			this.pPrincipal.changetoParticipantInformation();
+		}
+		if (e.getSource() == wbs) {
+			if (!this.principal.getAplicacion().verificarProyectoActivo()) {
+				if (!this.principal.getAplicacion().verificarParticipanteActivo()) { 
+				this.pPrincipal.changetoWBS();
+				}
+			}else {
+				JOptionPane.showMessageDialog(this.principal, "To create a WBS, you must have an active project and participant!");
+			}
+			
 		}
 		
 	}

@@ -17,6 +17,7 @@ public class PPrincipal extends JPanel implements MouseListener{
 	PCreateProject pCreateProject;
 	PModifyActivity pModifyActivity;
 	PParticipantInformation pParticipantInformation;
+	PWbs pWBS;
 	
 	JPanel panelInformation;
 	JPanel panelCreateActivity;
@@ -44,6 +45,9 @@ public class PPrincipal extends JPanel implements MouseListener{
 		
 		pParticipantInformation = new PParticipantInformation(principal);
 		this.add(pParticipantInformation, "pParticipantInformation");
+		
+		pWBS = new PWbs(principal);
+		this.add(pWBS, "pWBS");
 		
 		panelInformation = new JPanel();
 		panelInformation.setBackground(Color.gray);
@@ -81,6 +85,10 @@ public class PPrincipal extends JPanel implements MouseListener{
 	}
 	public void changetoParticipantInformation() {
 		cardLayout.show(this, "pParticipantInformation");
+	}
+	
+	public void changetoWBS() {
+		cardLayout.show(this, "pWBS");
 	}
 	
 	public PModifyActivity getModifyActivity(){
