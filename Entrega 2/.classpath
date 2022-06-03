@@ -6,16 +6,9 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Users/nicolasp/Documents/Actividades de Prog/DPOO/Proyecto-3/Entrega 2/lib/xchart-3.8.1/xchart-3.8.1.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/nicolasp/Documents/Actividades de Prog/DPOO/Proyecto-3/Entrega 2/lib/xchart-3.8.1/xchart-demo-3.8.1.jar">
-		<attributes>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="lib" path="lib/flatlaf-1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/nicolasp/Documents/Actividades de Prog/DPOO/Proyecto-3/Entrega 2/lib/jcommon-1.0.23.jar"/>
+	<classpathentry kind="lib" path="/Users/nicolasp/Documents/Actividades de Prog/DPOO/Proyecto-3/Entrega 2/lib/jfreechart-1.0.19.jar"/>
+	<classpathentry kind="lib" path="/Users/nicolasp/Documents/Actividades de Prog/DPOO/Proyecto-3/Entrega 2/lib/xchart-3.8.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

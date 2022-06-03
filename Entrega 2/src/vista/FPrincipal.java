@@ -69,6 +69,9 @@ public class FPrincipal extends JFrame {
     public PPrincipal getPPrincipal() {
     	return this.pPrincipal;
     }
+    public void graficas() {
+    	aplicacion.graficar();
+    }
     
 
 }

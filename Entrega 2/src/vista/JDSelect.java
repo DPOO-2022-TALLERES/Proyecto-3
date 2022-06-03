@@ -73,6 +73,7 @@ public class JDSelect extends JDialog implements ActionListener{
 			}
 			
 			selected = new JComboBox<>(this.options);
+			selected.setBounds(255,233,233,233);
 			this.add(selected);
 		}
 		

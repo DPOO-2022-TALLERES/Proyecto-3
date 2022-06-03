@@ -162,6 +162,15 @@ public void modificarActividad(Actividad actividad, String fecha,  String horaFi
 		graphRemainingD();*/
 		
 }
+public void graficar() {
+	
+
+	graphActByPart() ;
+	grapMeanAct();
+	graphProyStats();
+	graphRemainingD();
+	
+}
 
 public String[] informacionParticipante(String nombreparticipante) {
 	Participante participante = getParticipante(nombreparticipante);

@@ -111,6 +111,7 @@ public class PStart extends JPanel implements ActionListener{
 		}
 		if (e.getSource() == participantInfo) {
 			this.pPrincipal.changetoParticipantInformation();
+			this.principal.graficas();
 		}
 		if (e.getSource() == wbs) {
 			if (!this.principal.getAplicacion().verificarProyectoActivo()) {

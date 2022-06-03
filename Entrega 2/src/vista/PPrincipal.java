@@ -129,5 +129,8 @@ public class PPrincipal extends JPanel implements MouseListener{
 	public PCreateActivity getCreateActivity() {
 		return this.pCreateActivity;
 	}
+	public void graficas() {
+		
+	}
 
 }
