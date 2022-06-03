@@ -92,6 +92,13 @@ public class Task {
 		return this.name;
 	}
 	
+	public String getHoraFin() {
+		return  expectedFinishDate; 
+	}
+	public int getMinutos() {
+		return finalTime;
+	}
+	
 	public boolean isFinished() {
 		return this.isFinished;
 	}

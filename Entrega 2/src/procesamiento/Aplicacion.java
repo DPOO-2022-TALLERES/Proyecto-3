@@ -11,6 +11,8 @@ import modelo.Participante;
 import modelo.Proyecto;
 import modelo.Task;
 import modelo.WorkPackage;
+import modelo.showGraph;
+
 
 public class Aplicacion extends Observable{
 	
@@ -217,6 +219,31 @@ public String[] optionsModify(){
 		i++;
 	}
 	return returns;
+}
+
+//Graficar:
+public void graphActByPart() {
+	showGraph graficar= new showGraph();
+	ArrayList<Participante> participantes = proyectoelegido.getParticipantes();
+	graficar.PDatos(participantes);
+	
+}
+
+public void grapMeanAct() {
+	showGraph graficar= new showGraph();
+	ArrayList<Participante> participantes = proyectoelegido.getParticipantes();
+	graficar.parMean(participantes);
+	
+}
+public void graphProyStats() {
+	showGraph graficar= new showGraph();
+	graficar.ProyectStats(proyectoelegido);
+	
+}
+public void graphRemainingD() {
+	showGraph graficar= new showGraph();
+	graficar.grapToGoalDate(proyectoelegido.getTasks());
+	
 }
 
 // WBS

@@ -64,6 +64,9 @@ public class Proyecto
 	public String getFechaInicio() {
 		return fechaInicio;
 	}
+	public ArrayList<Task> getTasks(){
+		return tasks;
+	}
 
 	public void setFechaInicio(String fechaInicio) {
 		this.fechaInicio = fechaInicio;

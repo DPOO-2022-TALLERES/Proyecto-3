@@ -18,6 +18,10 @@ private ArrayList<String> diastrabajados = new ArrayList<String>();
 //WBS
 private ArrayList<Task> tasks = new ArrayList<Task>();
 
+public ArrayList<Task> getTasks(){
+	return tasks;
+}
+
 public String getCorreo() 
 {
 	return correo;
