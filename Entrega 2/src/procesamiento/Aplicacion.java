@@ -155,6 +155,12 @@ public void modificarActividad(Actividad actividad, String fecha,  String horaFi
 		actividad.setHoraFin(horaFin);
 		actividad.setMinutos(minutosTotales);
 		actividad.setNombreGuardar(actividad.getTitulo() + " de " + fecha);
+		/*
+		graphActByPart() ;
+		grapMeanAct();
+		graphProyStats();
+		graphRemainingD();*/
+		
 }
 
 public String[] informacionParticipante(String nombreparticipante) {

@@ -76,6 +76,7 @@ public String setgetTiempoTrabajado() {
 }
 
 public String setgetTiempoPromedioxActividad() {
+	setgetTiempoTrabajado();
 	this.tiempopromedioxactividad = tiempotrabajado / actividades.size();
 	return String.valueOf(tiempopromedioxactividad);
 }
