@@ -182,7 +182,7 @@ public HashMap<String,Participante> getParticipantes() {
 	return this.participantes;
 }
 
-public void crearActividad(String titulo, String descripcion, String fechaRealizado,String horaInicio, String horaFin, String tipoActividad, String minutos, String nombreguardar) {
+public Actividad crearActividad(String titulo, String descripcion, String fechaRealizado,String horaInicio, String horaFin, String tipoActividad, String minutos, String nombreguardar) {
 	Participante participante = this.participanteactivo;
 	Actividad nuevaactividad = new Actividad(titulo, descripcion,fechaRealizado, participante ,horaInicio,horaFin,tipoActividad,minutos,nombreguardar);
 	agregarActividad(nuevaactividad, nombreguardar);
@@ -191,6 +191,7 @@ public void crearActividad(String titulo, String descripcion, String fechaRealiz
 	System.out.println("Correcto agregar proyecto");
 	this.participanteactivo.agregarActividad(nuevaactividad);
 	System.out.println("Correcto agregar participante");
+	return nuevaactividad;
 }
 
 public String getParticipanteActivo() {

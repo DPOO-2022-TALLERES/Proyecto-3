@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import modelo.Participante;
+import modelo.Task;
 import vista.FPrincipal;
 import vista.JDCreateActivity;
 
@@ -29,7 +30,7 @@ public class PCreateActivity extends JPanel implements ActionListener{
 		this.principal = principal;
 		
 		
-		//ComboBox information
+		//ComboBox information 1
 		HashMap<String,Participante> participants = principal.getAplicacion().getParticipantes();
 		Set<String> setParticipants = participants.keySet();
 		int size = setParticipants.size();
@@ -46,6 +47,8 @@ public class PCreateActivity extends JPanel implements ActionListener{
 		selected.setBounds(280, 300, 200, 30);
 		this.add(selected);
 		
+	
+		
 		//JLabel instructions
 		instructions = new JLabel("Please select the participant who will create the activity.");
 		instructions.setBounds(215, 250, 380, 20);
@@ -53,7 +56,7 @@ public class PCreateActivity extends JPanel implements ActionListener{
 		
 		//JButton next
 		next = new JButton("Next");
-		next.setBounds(335, 365, 100, 30);
+		next.setBounds(335, 350, 100, 30);
 		this.add(next);
 		next.addActionListener(this);
 	}

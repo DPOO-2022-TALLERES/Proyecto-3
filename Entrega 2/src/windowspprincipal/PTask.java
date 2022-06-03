@@ -79,7 +79,6 @@ public class PTask extends JFrame implements ActionListener{
 	
 			}
 			else {
-			
 				this.principal.getAplicacion().addTask(selection, name.getText(), description.getText(), type.getText().strip());
 				this.principal.getAplicacion().setEFTTask(name.getText(), time.getText());
 				this.principal.getAplicacion().setEFDTask(name.getText(), date.getText());
@@ -87,15 +86,6 @@ public class PTask extends JFrame implements ActionListener{
 				
 			}
 				
-				
-				
-				
-				
-		
-			
-			
-			
-			
 			
 		}
 		

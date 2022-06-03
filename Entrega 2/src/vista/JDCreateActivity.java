@@ -8,10 +8,14 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+
+import modelo.Actividad;
 
 public class JDCreateActivity extends JDialog implements ActionListener {
 	
@@ -21,10 +25,15 @@ public class JDCreateActivity extends JDialog implements ActionListener {
 	JButton stopreanude, stopfinish;
 	boolean stop = false;
 	ArrayList<Integer> tiempos;
+	String [] options;
+	JComboBox <String>selectedTask;
 	long tiempo1;
 	long tiempo2;
 	String fechainicioactividad;
 	String horainicioactividad;
+	JRadioButton check;
+	boolean ifcheck;
+	JRadioButton nocheck;
 	
 	public JDCreateActivity(FPrincipal principal){
 		this.setLayout(null);
@@ -70,6 +79,31 @@ public class JDCreateActivity extends JDialog implements ActionListener {
 		description.setBounds(20, 140, 700, 80);
 		this.add(description);
 		
+		
+		JLabel txtlabel = new JLabel("Add activity to task:");
+		txtlabel.setBounds(230, 240, 300, 30);
+		this.add(txtlabel);
+		
+		this.options = principal.getAplicacion().getProyectoActivoObject().giveTaskstoActivity();
+		selectedTask = new JComboBox<>(this.options);
+		selectedTask.setBounds(230, 280, 300, 30);
+		this.add(selectedTask);
+		
+		
+		
+		
+		
+		nocheck =  new JRadioButton("This activity does not complete the task!");
+        nocheck.setBounds(230, 330, 300, 30);
+        this.add(nocheck);
+		
+		
+		check = new JRadioButton("This activity completes the task!");
+		check.setBounds(230, 350, 300, 30);
+		this.add(check);
+		
+		
+	
 		//Buttons
 		
 		stopreanude = new JButton("Pause cronometer / Reanude cronometer");
@@ -116,13 +150,25 @@ public class JDCreateActivity extends JDialog implements ActionListener {
 		if (e.getSource() == stopfinish) {
 			String totalminutes = consultarCronometro(this.tiempos);
 			JOptionPane.showMessageDialog(this,"The total minutes was taken in this activity was: " + totalminutes);
+			String selection = this.selectedTask.getSelectedItem().toString();
+			
+			if (check.isSelected()) {
+				
+				ifcheck = true;
+			}
+			
+			else if (nocheck.isSelected()) {
+				
+				ifcheck = false;
+			}
 
 			// Fin de la actividaaad
 			DateTimeFormatter dtfin = DateTimeFormatter.ofPattern("HH:mm:ss");
 			String horaFin = dtfin.format(LocalDateTime.now());
 			String tituloguardar = name.getText() + " de " + this.fechainicioactividad;
-			this.principal.getAplicacion().crearActividad(name.getText(), description.getText(), this.fechainicioactividad, this.horainicioactividad, horaFin, type.getText(), totalminutes, tituloguardar);
-			
+			Actividad act = this.principal.getAplicacion().crearActividad(name.getText(), description.getText(), this.fechainicioactividad, this.horainicioactividad, horaFin, type.getText(), totalminutes, tituloguardar);
+			this.principal.getAplicacion().setTasktoActivity(act, ifcheck, selection);
+			System.out.println(ifcheck);
 		}
 		
 	}
