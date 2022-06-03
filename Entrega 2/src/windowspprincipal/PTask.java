@@ -7,13 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import vista.FPrincipal;
 
-public class PTask implements ActionListener{
+public class PTask extends JFrame implements ActionListener{
 	
-	JFrame frame = new JFrame();
 	
 	JLabel txtName = new JLabel("Name:");
 	JTextField name = new JTextField();
@@ -27,7 +27,7 @@ public class PTask implements ActionListener{
     JLabel txtTime = new JLabel("Time:");
     JTextField time  = new JTextField();
     
-    JLabel txtDate = new JLabel("Finish Date:");
+    JLabel txtDate = new JLabel("Finish Date: (yyyy-mm-dd)");
     JTextField date  = new JTextField();
     
     
@@ -43,27 +43,27 @@ public class PTask implements ActionListener{
 		this.selection = selection;
 		this.principal = principal;
 		
-		frame.setLocationRelativeTo(null);
-		frame.setSize(300,300);
-		frame.setTitle("Task");
-		frame.setLayout(new GridLayout(6,1));
-		frame.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setSize(340,300);
+		this.setTitle("Task");
+	    this.setLayout(new GridLayout(6,1));
+		this.setResizable(false);
 		
 		
-		frame.add(txtName);
-		frame.add(name);
-		frame.add(txtDescription);
-		frame.add(description);
-		frame.add(txtType);
-		frame.add(type);
-		frame.add(txtTime);
-		frame.add(time);
-		frame.add(txtDate);
-		frame.add(date);
-		frame.add(create);
+		this.add(txtName);
+		this.add(name);
+		this.add(txtDescription);
+		this.add(description);
+		this.add(txtType);
+		this.add(type);
+		this.add(txtTime);
+		this.add(time);
+		this.add(txtDate);
+		this.add(date);
+		this.add(create);
 		create.addActionListener(this);
 		
-		frame.setVisible(true);
+		this.setVisible(true);
 	
 	}
 
@@ -73,7 +73,30 @@ public class PTask implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == create) {
-			this.principal.getAplicacion().addTask(selection, name.getText(), description.getText(), type.getText().strip());
+			if (time.getText().equals("") || date.getText().equals("")) {
+				this.principal.getAplicacion().addTask(selection, name.getText(), description.getText(), type.getText().strip());
+				JOptionPane.showMessageDialog(this, "Created Task Succesfully!. Remember you can add time and date later!");
+	
+			}
+			else {
+			
+				this.principal.getAplicacion().addTask(selection, name.getText(), description.getText(), type.getText().strip());
+				this.principal.getAplicacion().setEFTTask(name.getText(), time.getText());
+				this.principal.getAplicacion().setEFDTask(name.getText(), date.getText());
+				JOptionPane.showMessageDialog(this, "Created Task Succesfully!");
+				
+			}
+				
+				
+				
+				
+				
+		
+			
+			
+			
+			
+			
 		}
 		
 	}

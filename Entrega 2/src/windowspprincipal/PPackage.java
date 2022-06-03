@@ -13,9 +13,9 @@ import javax.swing.JTextField;
 
 import vista.FPrincipal;
 
-public class PPackage implements ActionListener{
+public class PPackage extends JFrame implements ActionListener{
 	
-		JFrame frame = new JFrame();
+
 		JLabel txtName = new JLabel("Name:");
 		JTextField name = new JTextField();
 		
@@ -34,22 +34,22 @@ public class PPackage implements ActionListener{
 
 		this.selection = selection;
 		this.principal = principal;
-		frame.setLocationRelativeTo(null);
-		frame.setSize(300,300);
-		frame.setTitle("Package");
-		frame.setLayout(new GridLayout(4,1));
-		frame.setResizable(false);
+		this.setLocationRelativeTo(null);
+		this.setSize(300,300);
+		this.setTitle("Package");
+		this.setLayout(new GridLayout(4,1));
+		this.setResizable(false);
 		
 		
-		frame.add(txtName);
-		frame.add(name);
-		frame.add(txtDescription);
-		frame.add(description);
-		frame.add(create);
+		this.add(txtName);
+		this.add(name);
+		this.add(txtDescription);
+		this.add(description);
+		this.add(create);
 		create.addActionListener(this);
 		
 		
-		frame.setVisible(true);
+		this.setVisible(true);
 		
 	}
 
