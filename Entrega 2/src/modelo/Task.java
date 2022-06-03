@@ -11,7 +11,7 @@ public class Task {
 	private int expectedTime; // Expected time of a task
 	private String expectedFinishDate; // Expected finish date of a task
 	private ArrayList<Participante> participants = new ArrayList<Participante>(); // Responsibles
-	private ArrayList<Actividad> activities; // Activities
+	private ArrayList<Actividad> activities = new ArrayList<Actividad>(); // Activities
 	private boolean isFinished = false; // Check if a task have finished yet. 
 	private int finalTime; // Time of a task
 	private String finalFinishDate; // Finish date of a task

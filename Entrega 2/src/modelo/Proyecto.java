@@ -171,6 +171,7 @@ public class Proyecto
 		int pos = 0;
 		for(Task tk : optionsArray) {
 			options[pos] = tk.getName();
+			pos += 1;
 		}
 	return options;
 	}

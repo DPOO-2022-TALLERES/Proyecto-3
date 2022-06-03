@@ -15,6 +15,7 @@ public class JDSelectWBS extends JDialog implements ActionListener {
 	FPrincipal principal;
 	String tochange;
 	String []options;
+	String []options2;
 	JButton selectButton;
 	JComboBox<String> selected;
 	
@@ -42,6 +43,14 @@ public class JDSelectWBS extends JDialog implements ActionListener {
 			this.add(selected);
 		}
 		
+		else if (tochange.equals("modify")) {
+			
+			this.setTitle("Modify activity");
+			this.options2 = principal.getAplicacion().getProyectoActivoObject().giveOptionsTasks();
+			selected = new JComboBox<>(this.options2);
+			this.add(selected);
+		}
+		
 		selectButton = new JButton("Select");
 		selectButton.addActionListener(this);
 		
@@ -62,6 +71,12 @@ public class JDSelectWBS extends JDialog implements ActionListener {
 				
 				String selection = this.selected.getSelectedItem().toString();
 				PTask task = new PTask(selection, principal);
+			}
+			
+			else if (tochange.equals("modify")) {
+				
+				String selection = this.selected.getSelectedItem().toString();
+				PMTask mtask = new PMTask(selection, principal);
 			}
 		}
 		
