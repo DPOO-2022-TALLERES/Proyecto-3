@@ -81,6 +81,7 @@ public class Task {
 				   finalTime += minutosumar;
 			   }
 			   this.finalTime = finalTime;
+			   this.project.addFinishTask(this);
 		}
 	}
 	
@@ -89,6 +90,10 @@ public class Task {
 	 */
 	public String getName() {
 		return this.name;
+	}
+	
+	public boolean isFinished() {
+		return this.isFinished;
 	}
 }
 

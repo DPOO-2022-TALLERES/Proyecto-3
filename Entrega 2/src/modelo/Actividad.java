@@ -12,6 +12,11 @@ private String tipoActividad;
 private String minutos;
 private String nombreguardar;
 
+
+// WBS
+
+private Task task;
+
 public String getnombreguardar() {
 	return this.nombreguardar;
 }
@@ -89,6 +94,12 @@ public Actividad(String titulo, String descripcion, String fechaRealizado, Parti
 	this.minutos = minutos;
 	this.nombreguardar = nombreguardar;
 }
+
+public void setTask(Task task) {
+	this.task = task;
+}
+
+
 
 public String getMinutos() {
 	return minutos;

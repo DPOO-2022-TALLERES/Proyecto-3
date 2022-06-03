@@ -242,6 +242,12 @@ public void setEFDTask(String nameTask, String date) {
 	task.setExpectedFinishDate(date);
 }
 
+public void setTasktoActivity(Actividad activity, boolean isFinished, String nameTask) {
+	Task tk = this.proyectoelegido.getTask(nameTask);
+	activity.setTask(tk);
+	tk.addActivity(activity, isFinished);
+}
+
 // Observer
 private void notificar() {
 	this.setChanged();

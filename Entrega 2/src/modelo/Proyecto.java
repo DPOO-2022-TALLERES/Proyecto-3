@@ -20,6 +20,7 @@ public class Proyecto
 	private HashMap<String,ArrayList<Task>> typeoftasks = new HashMap<String,ArrayList<Task>>();
 	private ArrayList<Task> tasks = new ArrayList<Task>();
 	private ArrayList<WorkPackage> workpackages = new ArrayList<WorkPackage>();
+	private ArrayList<Task> finishedtasks = new ArrayList<Task>();
 	
 	public Proyecto(String nombre, String descripcion, String fechaInicio, String fechaFin) {
 		super();
@@ -112,6 +113,9 @@ public class Proyecto
 		this.tasks.add(task);
 	}
 	
+	public void addFinishTask(Task task) {
+		this.finishedtasks.add(task);
+	}
 	public void addWorkPackage(WorkPackage wp) {
 		this.workpackages.add(wp);
 	}
@@ -148,6 +152,24 @@ public class Proyecto
 			iterator++;
 		}
 		return options;
+	}
+	
+	public String[] giveTaskstoActivity() {
+		String [] options;
+		ArrayList<Task> optionsArray = new ArrayList<Task>();
+		for (Task tk: this.tasks) {
+			if (!tk.isFinished()) {
+				optionsArray.add(tk);
+			}
+		}
+		options = new String [optionsArray.size()];
+		
+		
+		int pos = 0;
+		for(Task tk : optionsArray) {
+			options[pos] = tk.getName();
+		}
+	return options;
 	}
 
 	public WorkPackage getWorkPackage(String name) {
