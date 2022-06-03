@@ -168,7 +168,6 @@ public class JDCreateActivity extends JDialog implements ActionListener {
 			String tituloguardar = name.getText() + " de " + this.fechainicioactividad;
 			Actividad act = this.principal.getAplicacion().crearActividad(name.getText(), description.getText(), this.fechainicioactividad, this.horainicioactividad, horaFin, type.getText(), totalminutes, tituloguardar);
 			this.principal.getAplicacion().setTasktoActivity(act, ifcheck, selection);
-			System.out.println(ifcheck);
 		}
 		
 	}
